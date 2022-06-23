@@ -1,0 +1,24 @@
+name : 'my first github action'
+
+on : push # 어느 시점에서 실행? 코드를 실행할때? PR 날렸을 떄? comment가 달렸을 때 실행하게 함, 이벤트 기반의 workflow
+
+jobs: # 이하를 실행시켜라
+  first-job:
+    name: 'first job'
+    
+    runs-on: ubuntu-lastest # 빌드 서버 - 운영 체제를 실행 : windows-latest, ubuntu-latest
+
+    steps:
+    - name: Say Hello World 1
+      shell: bash
+      run:
+        echo "Hello World from step 1"
+
+    - name: Say Hello World 2
+      shell: pwsh
+      run:
+        echo "Hello World from step 2"
+
+
+# 세 가지 필수 요소 : name(고유 이름), on(실행 시점), jobs(실행 동작)
+# 이벤트는 중복 실행이 되므로 : 파일 당 이벤트 하나
